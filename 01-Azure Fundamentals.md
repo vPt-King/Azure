@@ -128,3 +128,101 @@ An availability zone in Region is combination of a fault domain and update domai
 ```
 
 Each VM in an availability set is assigned a Fault domain and update domain
+
+# Azure global infrastructure
+🟦 1️⃣ Azure Global Infrastructure gồm những gì?
+🔹 1. Regions (Vùng)
+
+Một Region = 1 khu vực địa lý (VD: Southeast Asia, Japan East)
+
+Mỗi region có 1 hoặc nhiều datacenter
+
+Khi tạo VM, VNet, DB → bắt buộc chọn region
+
+📌 Ví dụ:
+
+Southeast Asia → Singapore
+
+East Asia → Hong Kong
+
+Japan East → Tokyo
+
+🔹 2. Availability Zones (AZ)
+
+Trong 1 region
+
+Gồm nhiều datacenter độc lập
+
+Mỗi AZ:
+
+Nguồn điện riêng
+
+Mạng riêng
+
+Làm mát riêng
+
+👉 Mục tiêu: chống sự cố datacenter
+
+📌 Ví dụ:
+
+Japan East có AZ 1, 2, 3
+
+Nếu AZ 1 sập → AZ 2, 3 vẫn chạy
+
+🔹 3. Region Pairs
+
+Azure ghép cặp region để:
+
+Disaster Recovery
+
+Replication
+
+Update có kiểm soát
+
+📌 Ví dụ:
+
+Southeast Asia ↔ East Asia
+
+Japan East ↔ Japan West
+
+👉 Khi 1 region gặp thảm họa → failover sang region pair
+
+🔹 4. Edge Network
+
+Hệ thống Azure Front Door, CDN, DNS
+
+Đặt gần người dùng cuối
+
+Giảm latency, tăng tốc truy cập
+
+👉 User ở VN → request có thể vào edge gần nhất
+
+🟩 2️⃣ Azure Global Infrastructure dùng để làm gì?
+🎯 Mục tiêu chính
+Mục tiêu	                 Ý nghĩa
+High Availability	         Tránh downtime
+Disaster Recovery	         Phục hồi thảm họa
+Performance	                 Truy cập nhanh
+Compliance	                 Tuân thủ luật
+🟨 3️⃣ Ví dụ dễ hiểu (rất hay dùng khi phỏng vấn)
+
+Bạn có app cho user Việt Nam và Nhật Bản
+
+Thiết kế:
+
+App đặt ở Southeast Asia
+
+Backup sang Japan East
+
+CDN phân phối nội dung
+
+👉 Nếu Singapore lỗi → Nhật vẫn chạy
+👉 User VN truy cập nhanh
+
+🟧 4️⃣ Phân biệt nhanh (rất hay bị hỏi)
+Khái niệm	                Nghĩa
+Region	                    Vùng địa lý
+Availability Zone	        Datacenter độc lập trong region
+Fault Domain	            Nhóm phần cứng
+Update Domain	            Nhóm update
+Region Pair	                Cặp region
