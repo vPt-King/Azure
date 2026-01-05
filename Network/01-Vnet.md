@@ -103,3 +103,15 @@ Centralized
 🔹 Private IP là mặc định
 🔹 Internet chỉ vào khi bạn cho phép
 🔹 Tư duy giống hệt network on-prem
+
+# Create vnet
+```
++ Vào search virtual network > Chọn virtual network
++ Bên cột navbar tay trái, chọn virtual network
++ Create 
++ Trong phần basis , subscription chọn subscription của mình, Resource group 
+      . Nếu không có thì chọn create new > Nhập tên resouce mới vào
+      . Nếu có rồi thì chọn thôi
+. Instance details : đặt tên cho virtaul network name > Region
+. Nếu cần thêm bảo mật thì chọn thêm security rồi chọn Oke
+```
