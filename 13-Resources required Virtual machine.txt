@@ -1,0 +1,15 @@
+1 Virtual machine under a Resource Group, a subscription
+
+1 Virtual Machine need to connect with a managed 
+Disk that is hosted in Azure. 
+
+We can also using ephemeral disk to host OS of a VM, but if VM is stoped then we can lose the state of VM
+we may also have additional data disk 
+
+VM also require connectivity 
+
+So we need a virtual network , in virtual network we divide it into subnets. We attach VM with a virtual nic. This virtual NIC will connect to a particular Subnet in a particular Virtual network
+
+Nic is its own resources , Virtual NIC is its own resources. We don't pay for NIC or Virtual Network, We pay for egress traffic going out of the region. So we just pay for traffic going out and in
+
+We also can pay for public IP, Network Security Group, we can define security group in NIC , but normally, we prefer to do that in Subnet
